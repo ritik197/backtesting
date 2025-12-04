@@ -3,10 +3,9 @@ import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [activeTab, setActiveTab] = useState('features');
 
   return (
-    <div style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', background: '#0a0e27' }}>
+    <div style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', background: '#0a0e27', minHeight: '100vh' }}>
       
       {/* Header Navigation */}
       <header style={{
@@ -115,7 +114,7 @@ function App() {
                 Visual Backtesting
               </h3>
               <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' }}>
-                Watch your strategies unfold with TradingView's Charting Library integration. See every candle, every trade, every entry and exit in real-time replay mode [web:38].
+                Watch your strategies unfold with TradingView's Charting Library integration. See every candle, every trade, every entry and exit in real-time replay mode.
               </p>
               <ul style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>
                 <li>✓ 1-minute to 1-day timeframes</li>
@@ -139,7 +138,7 @@ function App() {
                 Live Option Chain Sync
               </h3>
               <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' }}>
-                Option chain and spot chart move in perfect synchronization [web:39]. Watch Greeks (Delta, Gamma, Vega, Theta), IV ranks, and OI in real-time as you analyze strategies.
+                Option chain and spot chart move in perfect synchronization. Watch Greeks (Delta, Gamma, Vega, Theta), IV ranks, and OI in real-time as you analyze strategies.
               </p>
               <ul style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>
                 <li>✓ Greeks visualization</li>
@@ -163,7 +162,7 @@ function App() {
                 Paper Trading Simulator
               </h3>
               <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' }}>
-                Simulate real trades without risk [web:42]. Practice with realistic fills, slippage, and market conditions. Build confidence before live trading.
+                Simulate real trades without risk. Practice with realistic fills, slippage, and market conditions. Build confidence before live trading.
               </p>
               <ul style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>
                 <li>✓ Real-time order execution</li>
@@ -187,7 +186,7 @@ function App() {
                 Prop Firm Risk Management
               </h3>
               <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' }}>
-                Learn risk discipline with prop firm-style account rules [web:36]. Daily loss limits, drawdown caps, and maximum leverage—just like funded accounts.
+                Learn risk discipline with prop firm-style account rules. Daily loss limits, drawdown caps, and maximum leverage—just like funded accounts.
               </p>
               <ul style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>
                 <li>✓ Daily loss limits</li>
@@ -286,7 +285,7 @@ function App() {
                 </div>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                TradingView Charting Library [web:38] powered visualization with full drawing tools, custom indicators, and real-time strategy overlay.
+                TradingView Charting Library powered visualization with full drawing tools, custom indicators, and real-time strategy overlay.
               </p>
             </div>
 
@@ -326,7 +325,7 @@ function App() {
                 </table>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Real-time Greeks [web:35], IV analysis, and option chain filtering synchronized perfectly with spot movement.
+                Real-time Greeks, IV analysis, and option chain filtering synchronized perfectly with spot movement.
               </p>
             </div>
 
@@ -363,7 +362,7 @@ function App() {
                 </div>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Risk-free simulation [web:42] with realistic fills, slippage, and broker integration.
+                Risk-free simulation with realistic fills, slippage, and broker integration.
               </p>
             </div>
           </div>
@@ -373,7 +372,7 @@ function App() {
             <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '10px', color: 'white' }}>
               <div style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>⚙️</div>
               <h4 style={{ marginBottom: '0.5rem' }}>Prop Firm Rules</h4>
-              <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)' }}>Daily limits, max loss, drawdown caps [web:36]—learn discipline</p>
+              <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)' }}>Daily limits, max loss, drawdown caps—learn discipline</p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '10px', color: 'white' }}>
               <div style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>📔</div>
@@ -413,7 +412,7 @@ function App() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '2rem',
             background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1))',
             padding: '2rem',
@@ -423,7 +422,7 @@ function App() {
             <div>
               <h3 style={{ color: '#667eea', marginBottom: '1.5rem' }}>🎓 Designed for Indian Traders</h3>
               <ul style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '2' }}>
-                <li>✓ NIFTY & BANKNIFTY focus</li>
+                <li>✓ NIFTY &amp; BANKNIFTY focus</li>
                 <li>✓ Indian expiry cycles</li>
                 <li>✓ Rupee denominations</li>
                 <li>✓ IST timezones</li>
@@ -448,7 +447,7 @@ function App() {
       <section style={{ padding: '4rem 2rem', background: 'linear-gradient(135deg, #1a1f3a 0%, #0f1325 100%)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', color: 'white', textAlign: 'center', marginBottom: '1rem' }}>
-            💰 Affordable & Accessible
+            💰 Affordable &amp; Accessible
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.7)', textAlign: 'center', marginBottom: '3rem', fontSize: '1.1rem' }}>
             Everything included from day one
@@ -481,8 +480,11 @@ function App() {
                 padding: '0.8rem 1.5rem',
                 borderRadius: '8px',
                 cursor: 'pointer',
-                width: '100%'
-              }}>Get Started</button>
+                width: '100%',
+                fontWeight: '600'
+              }}>
+                Get Started
+              </button>
             </div>
 
             {/* Professional Plan (Most Popular) */}
@@ -530,7 +532,9 @@ function App() {
                 cursor: 'pointer',
                 width: '100%',
                 fontWeight: '600'
-              }}>Start Free Trial</button>
+              }}>
+                Start Free Trial
+              </button>
             </div>
 
             {/* Enterprise Plan */}
@@ -561,14 +565,17 @@ function App() {
                 padding: '0.8rem 1.5rem',
                 borderRadius: '8px',
                 cursor: 'pointer',
-                width: '100%'
-              }}>Contact Sales</button>
+                width: '100%',
+                fontWeight: '600'
+              }}>
+                Contact Sales
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonial / Stats */}
+      {/* Stats Section */}
       <section style={{ padding: '4rem 2rem', background: '#0a0e27' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{
@@ -617,7 +624,7 @@ function App() {
             gap: '1.5rem',
             textAlign: 'center'
           }}>
-            {['TradingView Charting Library', 'React.js', 'Lightweight Charts', 'PostgreSQL', 'Firebase', 'WebSockets', 'AWS', 'Docker'].map((tech, i) => (
+            {['TradingView Charting', 'React.js', 'Lightweight Charts', 'PostgreSQL', 'Firebase', 'WebSockets', 'AWS', 'Docker'].map((tech, i) => (
               <div key={i} style={{
                 background: 'rgba(102, 126, 234, 0.15)',
                 border: '1px solid rgba(102, 126, 234, 0.3)',
@@ -679,31 +686,31 @@ function App() {
             <div>
               <h4 style={{ color: 'white', marginBottom: '1rem' }}>Product</h4>
               <ul style={{ listStyle: 'none', padding: 0 }}>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Features</a></li>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Pricing</a></li>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Documentation</a></li>
+                <li><a href="#features" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Features</a></li>
+                <li><a href="#pricing" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Pricing</a></li>
+                <li><a href="#docs" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Documentation</a></li>
               </ul>
             </div>
             <div>
               <h4 style={{ color: 'white', marginBottom: '1rem' }}>Company</h4>
               <ul style={{ listStyle: 'none', padding: 0 }}>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>About</a></li>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Blog</a></li>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Contact</a></li>
+                <li><a href="#about" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>About</a></li>
+                <li><a href="#blog" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Blog</a></li>
+                <li><a href="#contact" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Contact</a></li>
               </ul>
             </div>
             <div>
               <h4 style={{ color: 'white', marginBottom: '1rem' }}>Legal</h4>
               <ul style={{ listStyle: 'none', padding: 0 }}>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Terms</a></li>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Privacy</a></li>
-                <li><a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Disclaimer</a></li>
+                <li><a href="#terms" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Terms</a></li>
+                <li><a href="#privacy" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Privacy</a></li>
+                <li><a href="#disclaimer" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Disclaimer</a></li>
               </ul>
             </div>
           </div>
           <div style={{ borderTop: '1px solid rgba(102, 126, 234, 0.2)', paddingTop: '2rem', textAlign: 'center' }}>
             <p>
-              © 2026 Backtester Pro. Built for Indian options traders. TradingView integration coming 2026. [web:15][web:35][web:36][web:37][web:38][web:39][web:42]
+              © 2026 Backtester Pro. Built for Indian options traders. TradingView integration coming 2026.
             </p>
             <p style={{ fontSize: '0.85rem', marginTop: '1rem' }}>
               Disclaimer: Paper trading simulations are for educational purposes only. Past performance does not guarantee future results. Always trade responsibly.
@@ -712,7 +719,7 @@ function App() {
         </div>
       </footer>
 
-      {/* Fun Counter Easter Egg */}
+      {/* Fun Counter Easter Egg - Fixed */}
       <div style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 900 }}>
         <button onClick={() => setCount(count + 1)} style={{
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -726,7 +733,8 @@ function App() {
           boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          fontWeight: 'bold'
         }}>
           {count}
         </button>

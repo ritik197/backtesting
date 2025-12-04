@@ -6,8 +6,8 @@ function App() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
     if (email) {
       // UI-only submission - no backend logic
       setSubmitted(true);

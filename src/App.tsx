@@ -1,89 +1,303 @@
-import { useState } from "react";
+import { useState } from 'react';
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevents page reload
-    alert("Thank you! You've secured your spot."); // replace with your logic
+    e.preventDefault();
+    if (email) {
+      // UI-only submission - no backend logic
+      setSubmitted(true);
+      setEmail('');
+      setTimeout(() => setSubmitted(false), 3000);
+    }
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", background: "#0a0e27", color: "white", minHeight: "100vh" }}>
+    <div style={{ 
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', 
+      background: 'linear-gradient(180deg, #0a0e27 0%, #13183d 100%)',
+      minHeight: '100vh',
+      overflowX: 'hidden'
+    }}>
       
-      {/* Hero Section */}
-      <section style={{ padding: "4rem 2rem", textAlign: "center" }}>
-        <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>Welcome to PhirseView</h1>
-        <p style={{ fontSize: "1.2rem", marginBottom: "2rem", color: "rgba(255,255,255,0.7)" }}>
-          Built for Indian traders, by Indian traders.
-        </p>
-        <form
-          onSubmit={handleSubmit}
-          style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}
-        >
-          <input
-            type="email"
-            placeholder="Enter your email"
-            required
-            style={{
-              padding: "1rem 1.5rem",
-              borderRadius: "50px",
-              border: "2px solid rgba(255, 255, 255, 0.3)",
-              background: "rgba(255, 255, 255, 0.15)",
-              color: "white",
-              outline: "none",
-              width: "250px",
-              fontSize: "1rem",
-            }}
-          />
-          <button
-            type="submit"
-            style={{
-              background: "white",
-              color: "#667eea",
-              border: "none",
-              padding: "1rem 2.5rem",
-              fontSize: "1.1rem",
-              borderRadius: "50px",
-              cursor: "pointer",
-              fontWeight: "700",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-              transition: "all 0.3s",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = "translateY(-2px)";
-              e.target.style.boxShadow = "0 15px 40px rgba(0,0,0,0.4)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "translateY(0)";
-              e.target.style.boxShadow = "0 10px 30px rgba(0,0,0,0.3)";
-            }}
-          >
-            Secure My Spot
-          </button>
-        </form>
+      {/* Enhanced Header Navigation - Fixed Width */}
+      <header style={{
+        background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%)',
+        backdropFilter: 'blur(10px)',
+        padding: '0.8rem 2rem',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+      }}>
+        <div style={{ 
+          maxWidth: '1100px', 
+          margin: '0 auto', 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center',
+          padding: '0.5rem 0'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '0.8rem',
+            flexShrink: 0 
+          }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              background: 'linear-gradient(135deg, #fff 0%, #667eea 100%)',
+              borderRadius: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold',
+              fontSize: '1.2rem',
+              color: '#0a0e27'
+            }}>
+              PV
+            </div>
+            <div>
+              <h1 style={{ 
+                margin: 0, 
+                fontSize: '1.5rem', 
+                color: 'white',
+                fontWeight: '700',
+                letterSpacing: '-0.5px'
+              }}>
+                PhirseView
+              </h1>
+              <p style={{ 
+                margin: '0.2rem 0 0 0', 
+                color: 'rgba(255,255,255,0.9)', 
+                fontSize: '0.75rem',
+                fontWeight: '500'
+              }}>
+                Built for Indian Traders, by Indian.
+              </p>
+            </div>
+          </div>
+          <div style={{ 
+            background: 'rgba(255,255,255,0.15)', 
+            padding: '0.5rem 1.2rem', 
+            borderRadius: '50px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            color: 'white',
+            fontSize: '0.85rem',
+            fontWeight: '600',
+            backdropFilter: 'blur(5px)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <div style={{
+              width: '8px',
+              height: '8px',
+              background: '#4ade80',
+              borderRadius: '50%',
+              animation: 'pulse 2s infinite'
+            }}></div>
+            🚀 Launching 2026
+          </div>
+        </div>
+      </header>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.8rem",
-            marginTop: "1.5rem",
-            color: "rgba(255,255,255,0.8)",
-            fontSize: "0.9rem",
-          }}
-        >
-          <span style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-            <span style={{ fontSize: "1.2rem" }}>✓</span> No credit card required
-          </span>
-          <span style={{ color: "rgba(255,255,255,0.3)" }}>•</span>
-          <span style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-            <span style={{ fontSize: "1.2rem" }}>✓</span> Early access benefits
-          </span>
+      {/* Enhanced Hero Section with Email Collection */}
+      <section style={{
+        background: 'linear-gradient(135deg, #1a1f3a 0%, #0f1325 100%)',
+        padding: '3rem 2rem',
+        textAlign: 'center',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '-50%',
+          right: '-10%',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%)',
+          borderRadius: '50%'
+        }}></div>
+        
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
+          <div style={{
+            display: 'inline-block',
+            background: 'rgba(102, 126, 234, 0.1)',
+            padding: '0.5rem 1.2rem',
+            borderRadius: '50px',
+            marginBottom: '1.5rem',
+            border: '1px solid rgba(102, 126, 234, 0.3)'
+          }}>
+            <span style={{ color: '#667eea', fontWeight: '600' }}>✨ Exclusive Beta Access</span>
+          </div>
+          
+          <h1 style={{ 
+            fontSize: '3.2rem', 
+            marginBottom: '1.2rem', 
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            fontWeight: '800',
+            lineHeight: '1.1'
+          }}>
+            Master Options Trading<br />with Visual Backtesting
+          </h1>
+          
+          <p style={{ 
+            fontSize: '1.3rem', 
+            color: 'rgba(255,255,255,0.85)', 
+            marginBottom: '2.5rem', 
+            lineHeight: '1.6',
+            maxWidth: '800px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
+            Backtest NIFTY & BANKNIFTY strategies with live option chain sync, 
+            paper trading simulation, and pro-level risk analytics—built specifically for Indian markets.
+          </p>
+
+          {/* Email Collection Form */}
+          <div style={{
+            maxWidth: '550px',
+            margin: '0 auto 2rem',
+            background: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '20px',
+            padding: '2rem',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
+          }}>
+            <h3 style={{ 
+              fontSize: '1.4rem', 
+              marginBottom: '1rem', 
+              color: 'white',
+              fontWeight: '600'
+            }}>
+              🎁 Get Early Access & Exclusive Benefits
+            </h3>
+            <p style={{ 
+              color: 'rgba(255,255,255,0.7)', 
+              marginBottom: '1.5rem',
+              fontSize: '0.95rem'
+            }}>
+              Early Subscribers – Get Your Lifetime Discount on PhirseView! It's free—just leave your email below.
+            </p>
+            
+            {submitted ? (
+              <div style={{
+                background: 'rgba(34, 197, 94, 0.1)',
+                border: '1px solid rgba(34, 197, 94, 0.3)',
+                borderRadius: '12px',
+                padding: '1.2rem',
+                textAlign: 'center'
+              }}>
+                <div style={{ 
+                  fontSize: '1.5rem', 
+                  marginBottom: '0.5rem',
+                  color: '#22c55e'
+                }}>
+                  ✓
+                </div>
+                <p style={{ 
+                  color: 'rgba(255,255,255,0.9)',
+                  fontWeight: '600',
+                  margin: 0
+                }}>
+                  Thank you! We'll contact you soon.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  required
+                  style={{
+                    flex: '1',
+                    minWidth: '250px',
+                    padding: '1rem 1.5rem',
+                    fontSize: '1rem',
+                    borderRadius: '50px',
+                    border: '2px solid rgba(102, 126, 234, 0.3)',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    color: 'white',
+                    outline: 'none',
+                    transition: 'all 0.3s'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = '#667eea'}
+                  onBlur={(e) => e.target.style.borderColor = 'rgba(102, 126, 234, 0.3)'}
+                />
+                <button 
+                  type="submit"
+                  style={{
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    color: 'white',
+                    border: 'none',
+                    padding: '1rem 2.5rem',
+                    fontSize: '1rem',
+                    borderRadius: '50px',
+                    cursor: 'pointer',
+                    fontWeight: '600',
+                    boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)',
+                    transition: 'all 0.3s',
+                    minWidth: '150px'
+                  }}
+                  onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
+                  onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+                >
+                  Join Waitlist
+                </button>
+              </form>
+            )}
+            
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1rem',
+              marginTop: '1.5rem',
+              color: 'rgba(255,255,255,0.6)',
+              fontSize: '0.85rem'
+            }}>
+              <span>✓ No spam ever</span>
+              <span style={{ color: 'rgba(255,255,255,0.3)' }}>•</span>
+              <span>✓ Unsubscribe anytime</span>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '3rem',
+            flexWrap: 'wrap',
+            marginTop: '2rem'
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', fontWeight: '700', color: '#667eea' }}>1,500+</div>
+              <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)' }}>Traders Joined</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', fontWeight: '700', color: '#22c55e' }}>₹0</div>
+              <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)' }}>Beta Access Cost</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', fontWeight: '700', color: '#ec4899' }}>100%</div>
+              <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)' }}>Made in India</div>
+            </div>
+          </div>
         </div>
       </section>
-
 
       {/* Core Features - Enhanced */}
       <section style={{ 
@@ -362,188 +576,186 @@ function App() {
               </div>
             </div>
           </div>
-{/* Prop Firm Simulation */}
-<div style={{
-  background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%)',
-  border: '1px solid rgba(245, 158, 11, 0.2)',
-  borderRadius: '20px',
-  padding: '2rem',
-  color: 'white',
-  transition: 'all 0.3s',
-  cursor: 'pointer',
-  position: 'relative',
-  overflow: 'hidden',
-  transform: 'translateY(0)',
-  ':hover': {
-    transform: 'translateY(-5px)',
-    boxShadow: '0 20px 40px rgba(245, 158, 11, 0.2)'
-  }
-}}>
-  <div style={{
-    position: 'absolute',
-    top: '-20px',
-    right: '-20px',
-    width: '80px',
-    height: '80px',
-    background: 'rgba(245, 158, 11, 0.1)',
-    borderRadius: '50%'
-  }}></div>
-  <div style={{ 
-    fontSize: '2.5rem', 
-    marginBottom: '1.2rem',
-    display: 'inline-block',
-    background: 'rgba(245, 158, 11, 0.2)',
-    padding: '0.8rem',
-    borderRadius: '12px'
-  }}>🏆</div>
-  <h3 style={{ 
-    fontSize: '1.4rem', 
-    marginBottom: '0.8rem', 
-    color: '#f59e0b',
-    fontWeight: '600'
-  }}>
-    Prop Firm Challenge Simulator
-  </h3>
-  <p style={{ 
-    color: 'rgba(255,255,255,0.85)', 
-    lineHeight: '1.6', 
-    fontSize: '0.95rem',
-    marginBottom: '1.2rem'
-  }}>
-    Practice with real prop firm rules. Experience daily loss limits, drawdown caps, and profit targets before taking the actual challenge.
-  </p>
-  
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.8rem',
-    marginBottom: '1.5rem'
-  }}>
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      fontSize: '0.9rem',
-      color: 'rgba(255,255,255,0.8)'
-    }}>
-      <div style={{
-        width: '20px',
-        height: '20px',
-        background: 'rgba(245, 158, 11, 0.2)',
-        borderRadius: '4px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '0.8rem',
-        color: '#f59e0b'
-      }}>
-        ✓
-      </div>
-      Daily loss limits & trailing drawdown
-    </div>
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      fontSize: '0.9rem',
-      color: 'rgba(255,255,255,0.8)'
-    }}>
-      <div style={{
-        width: '20px',
-        height: '20px',
-        background: 'rgba(245, 158, 11, 0.2)',
-        borderRadius: '4px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '0.8rem',
-        color: '#f59e0b'
-      }}>
-        ✓
-      </div>
-      Realistic profit targets (8-10%)
-    </div>
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      fontSize: '0.9rem',
-      color: 'rgba(255,255,255,0.8)'
-    }}>
-      <div style={{
-        width: '20px',
-        height: '20px',
-        background: 'rgba(245, 158, 11, 0.2)',
-        borderRadius: '4px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '0.8rem',
-        color: '#f59e0b'
-      }}>
-        ✓
-      </div>
-      Psychology tracking & discipline scoring
-    </div>
-  </div>
-  
-  <div style={{
-    background: 'rgba(245, 158, 11, 0.15)',
-    borderRadius: '12px',
-    padding: '1rem',
-    textAlign: 'center',
-    position: 'relative',
-    overflow: 'hidden'
-  }}>
-    <div style={{
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      right: '0',
-      height: '3px',
-      background: 'linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b)',
-      animation: 'progressBar 3s ease-in-out infinite'
-    }}></div>
-    <div style={{ 
-      fontSize: '0.9rem', 
-      color: 'rgba(255,255,255,0.9)',
-      marginBottom: '0.5rem',
-      fontWeight: '600'
-    }}>
-      Challenge Progress
-    </div>
-    <div style={{ 
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      marginBottom: '0.3rem'
-    }}>
-      <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Phase 1</span>
-      <span style={{ fontSize: '0.9rem', fontWeight: '700', color: '#f59e0b' }}>65%</span>
-    </div>
-    <div style={{
-      height: '6px',
-      background: 'rgba(255,255,255,0.1)',
-      borderRadius: '3px',
-      overflow: 'hidden'
-    }}>
-      <div style={{
-        width: '65%',
-        height: '100%',
-        background: 'linear-gradient(90deg, #f59e0b, #fbbf24)',
-        borderRadius: '3px',
-        transition: 'width 0.5s ease'
-      }}></div>
-    </div>
-    <div style={{ 
-      fontSize: '0.75rem', 
-      color: 'rgba(255,255,255,0.6)',
-      marginTop: '0.5rem'
-    }}>
-      ₹4,85,000 / ₹5,00,000 profit target
-    </div>
-  </div>
-</div>
+
+          {/* Prop Firm Simulation */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%)',
+            border: '1px solid rgba(245, 158, 11, 0.2)',
+            borderRadius: '20px',
+            padding: '2rem',
+            color: 'white',
+            transition: 'all 0.3s',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden',
+            marginBottom: '3rem'
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: '-20px',
+              right: '-20px',
+              width: '80px',
+              height: '80px',
+              background: 'rgba(245, 158, 11, 0.1)',
+              borderRadius: '50%'
+            }}></div>
+            <div style={{ 
+              fontSize: '2.5rem', 
+              marginBottom: '1.2rem',
+              display: 'inline-block',
+              background: 'rgba(245, 158, 11, 0.2)',
+              padding: '0.8rem',
+              borderRadius: '12px'
+            }}>🏆</div>
+            <h3 style={{ 
+              fontSize: '1.4rem', 
+              marginBottom: '0.8rem', 
+              color: '#f59e0b',
+              fontWeight: '600'
+            }}>
+              Prop Firm Challenge Simulator
+            </h3>
+            <p style={{ 
+              color: 'rgba(255,255,255,0.85)', 
+              lineHeight: '1.6', 
+              fontSize: '0.95rem',
+              marginBottom: '1.2rem'
+            }}>
+              Practice with real prop firm rules. Experience daily loss limits, drawdown caps, and profit targets before taking the actual challenge.
+            </p>
+            
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.8rem',
+              marginBottom: '1.5rem'
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.9rem',
+                color: 'rgba(255,255,255,0.8)'
+              }}>
+                <div style={{
+                  width: '20px',
+                  height: '20px',
+                  background: 'rgba(245, 158, 11, 0.2)',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.8rem',
+                  color: '#f59e0b'
+                }}>
+                  ✓
+                </div>
+                Daily loss limits & trailing drawdown
+              </div>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.9rem',
+                color: 'rgba(255,255,255,0.8)'
+              }}>
+                <div style={{
+                  width: '20px',
+                  height: '20px',
+                  background: 'rgba(245, 158, 11, 0.2)',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.8rem',
+                  color: '#f59e0b'
+                }}>
+                  ✓
+                </div>
+                Realistic profit targets (8-10%)
+              </div>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.9rem',
+                color: 'rgba(255,255,255,0.8)'
+              }}>
+                <div style={{
+                  width: '20px',
+                  height: '20px',
+                  background: 'rgba(245, 158, 11, 0.2)',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.8rem',
+                  color: '#f59e0b'
+                }}>
+                  ✓
+                </div>
+                Psychology tracking & discipline scoring
+              </div>
+            </div>
+            
+            <div style={{
+              background: 'rgba(245, 158, 11, 0.15)',
+              borderRadius: '12px',
+              padding: '1rem',
+              textAlign: 'center',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                right: '0',
+                height: '3px',
+                background: 'linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b)',
+                animation: 'progressBar 3s ease-in-out infinite'
+              }}></div>
+              <div style={{ 
+                fontSize: '0.9rem', 
+                color: 'rgba(255,255,255,0.9)',
+                marginBottom: '0.5rem',
+                fontWeight: '600'
+              }}>
+                Challenge Progress
+              </div>
+              <div style={{ 
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: '0.3rem'
+              }}>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Phase 1</span>
+                <span style={{ fontSize: '0.9rem', fontWeight: '700', color: '#f59e0b' }}>65%</span>
+              </div>
+              <div style={{
+                height: '6px',
+                background: 'rgba(255,255,255,0.1)',
+                borderRadius: '3px',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: '65%',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, #f59e0b, #fbbf24)',
+                  borderRadius: '3px',
+                  transition: 'width 0.5s ease'
+                }}></div>
+              </div>
+              <div style={{ 
+                fontSize: '0.75rem', 
+                color: 'rgba(255,255,255,0.6)',
+                marginTop: '0.5rem'
+              }}>
+                ₹4,85,000 / ₹5,00,000 profit target
+              </div>
+            </div>
+          </div>
+
           {/* Secondary Features Grid */}
           <div style={{
             display: 'grid',
@@ -1206,97 +1418,83 @@ function App() {
         </div>
       </section>
 
-
-      
       {/* Footer */}
-      <footer
-        style={{
-          padding: "2rem 2rem",
-          background: "#0a0e27",
-          borderTop: "1px solid rgba(102, 126, 234, 0.2)",
-          color: "rgba(255,255,255,0.7)",
-          fontSize: "0.85rem",
-        }}
-      >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: "2rem",
-              marginBottom: "1.5rem",
-            }}
-          >
+      <footer style={{ 
+        padding: '2rem 2rem', 
+        background: '#0a0e27', 
+        borderTop: '1px solid rgba(102, 126, 234, 0.2)', 
+        color: 'rgba(255,255,255,0.7)', 
+        fontSize: '0.85rem' 
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '2rem',
+            marginBottom: '1.5rem'
+          }}>
             <div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.8rem",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                <div
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                    borderRadius: "8px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontWeight: "bold",
-                    fontSize: "1rem",
-                    color: "white",
-                  }}
-                >
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.8rem',
+                marginBottom: '0.5rem'
+              }}>
+                <div style={{
+                  width: '30px',
+                  height: '30px',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 'bold',
+                  fontSize: '1rem',
+                  color: 'white'
+                }}>
                   PV
                 </div>
-                <span
-                  style={{
-                    fontSize: "1.2rem",
-                    fontWeight: "700",
-                    color: "white",
-                    letterSpacing: "-0.5px",
-                  }}
-                >
+                <span style={{ 
+                  fontSize: '1.2rem', 
+                  fontWeight: '700', 
+                  color: 'white',
+                  letterSpacing: '-0.5px'
+                }}>
                   PhirseView
                 </span>
               </div>
-              <p style={{ margin: 0, color: "rgba(255,255,255,0.5)" }}>
+              <p style={{ margin: 0, color: 'rgba(255,255,255,0.5)' }}>
                 Built for Indian traders, by Indian
               </p>
             </div>
-
-            <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-              <a href="#" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+            
+            <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+              <a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>
                 Privacy Policy
               </a>
-              <a href="#" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+              <a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>
                 Terms of Service
               </a>
-              <a href="#" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+              <a href="#" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>
                 Contact
               </a>
             </div>
           </div>
-
-          <div
-            style={{
-              paddingTop: "1.5rem",
-              borderTop: "1px solid rgba(255,255,255,0.1)",
-              textAlign: "center",
-            }}
-          >
-            <p style={{ margin: "0.5rem 0", color: "rgba(255,255,255,0.5)" }}>
+          
+          <div style={{ 
+            paddingTop: '1.5rem', 
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            textAlign: 'center'
+          }}>
+            <p style={{ margin: '0.5rem 0', color: 'rgba(255,255,255,0.5)' }}>
               © 2026 PhirseView. All rights reserved.
             </p>
-            <p style={{ margin: "0.5rem 0", color: "rgba(255,255,255,0.5)", fontStyle: "italic" }}>
+            <p style={{ margin: '0.5rem 0', color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>
               Charts Don't Lie, Legends Do.
             </p>
-            <p style={{ margin: "0.5rem 0", color: "rgba(255,255,255,0.5)", fontSize: "0.8rem" }}>
+            <p style={{ margin: '0.5rem 0', color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>
               Paper trading simulations are for educational purposes only. Trading involves risk.
             </p>
           </div>
@@ -1304,32 +1502,32 @@ function App() {
       </footer>
 
       {/* Fun Counter */}
-      <div style={{ position: "fixed", bottom: "2rem", right: "2rem", zIndex: 900 }}>
-        <button
+      <div style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 900 }}>
+        <button 
           onClick={() => setCount(count + 1)}
           style={{
-            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            color: "white",
-            border: "none",
-            width: "60px",
-            height: "60px",
-            borderRadius: "50%",
-            fontSize: "1.5rem",
-            cursor: "pointer",
-            boxShadow: "0 10px 30px rgba(102, 126, 234, 0.4)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: "bold",
-            transition: "all 0.3s",
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            color: 'white',
+            border: 'none',
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            fontSize: '1.5rem',
+            cursor: 'pointer',
+            boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: 'bold',
+            transition: 'all 0.3s'
           }}
           onMouseEnter={(e) => {
-            e.target.style.transform = "scale(1.1)";
-            e.target.style.boxShadow = "0 15px 40px rgba(102, 126, 234, 0.6)";
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 15px 40px rgba(102, 126, 234, 0.6)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.transform = "scale(1)";
-            e.target.style.boxShadow = "0 10px 30px rgba(102, 126, 234, 0.4)";
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 10px 30px rgba(102, 126, 234, 0.4)';
           }}
         >
           {count}
@@ -1348,12 +1546,17 @@ function App() {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
         }
+        
         @keyframes progressBar {
           0% { background-position: -100px 0; }
           100% { background-position: 100px 0; }
         }
         
         @media (max-width: 768px) {
+          header > div {
+            padding: 0.5rem 1rem !important;
+          }
+          
           section {
             padding: 2rem 1rem !important;
           }
@@ -1364,6 +1567,10 @@ function App() {
           
           h2 {
             font-size: 2rem !important;
+          }
+          
+          .demo-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

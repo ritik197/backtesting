@@ -238,25 +238,31 @@ function App() {
                   onBlur={(e) => e.target.style.borderColor = 'rgba(102, 126, 234, 0.3)'}
                 />
                 <button 
-                  type="submit"
-                  style={{
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                    color: 'white',
-                    border: 'none',
-                    padding: '1rem 2.5rem',
-                    fontSize: '1rem',
-                    borderRadius: '50px',
-                    cursor: 'pointer',
-                    fontWeight: '600',
-                    boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)',
-                    transition: 'all 0.3s',
-                    minWidth: '150px'
-                  }}
-                  onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-                  onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
-                >
-                  Join Waitlist
-                </button>
+  type="submit"
+  style={{
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '1rem 2.5rem',
+    fontSize: '1rem',
+    borderRadius: '50px',
+    cursor: 'pointer',
+    fontWeight: '600',
+    boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)',
+    transition: 'all 0.3s',
+    minWidth: '150px'
+  }}
+  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget as HTMLButtonElement;
+    button.style.transform = 'translateY(-2px)';
+  }}
+  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget as HTMLButtonElement;
+    button.style.transform = 'translateY(0)';
+  }}
+>
+  Join Waitlist
+</button>
               </form>
             )}
             
@@ -1371,30 +1377,32 @@ function App() {
                 }}
               />
               <button 
-                type="submit"
-                style={{
-                  background: 'white',
-                  color: '#667eea',
-                  border: 'none',
-                  padding: '1rem 2.5rem',
-                  fontSize: '1.1rem',
-                  borderRadius: '50px',
-                  cursor: 'pointer',
-                  fontWeight: '700',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
-                }}
-              >
-                Secure My Spot
-              </button>
+  type="submit"
+  style={{
+    background: 'white',
+    color: '#667eea',
+    border: 'none',
+    padding: '1rem 2.5rem',
+    fontSize: '1.1rem',
+    borderRadius: '50px',
+    cursor: 'pointer',
+    fontWeight: '700',
+    boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+    transition: 'all 0.3s'
+  }}
+  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget as HTMLButtonElement;
+    button.style.transform = 'translateY(-2px)';
+    button.style.boxShadow = '0 15px 40px rgba(0,0,0,0.4)';
+  }}
+  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget as HTMLButtonElement;
+    button.style.transform = 'translateY(0)';
+    button.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+  }}
+>
+  Secure My Spot
+</button>
             </form>
             
             <div style={{
@@ -1504,34 +1512,36 @@ function App() {
       {/* Fun Counter */}
       <div style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 900 }}>
         <button 
-          onClick={() => setCount(count + 1)}
-          style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            color: 'white',
-            border: 'none',
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            fontSize: '1.5rem',
-            cursor: 'pointer',
-            boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: 'bold',
-            transition: 'all 0.3s'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 15px 40px rgba(102, 126, 234, 0.6)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 10px 30px rgba(102, 126, 234, 0.4)';
-          }}
-        >
-          {count}
-        </button>
+  onClick={() => setCount(count + 1)}
+  style={{
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: 'white',
+    border: 'none',
+    width: '60px',
+    height: '60px',
+    borderRadius: '50%',
+    fontSize: '1.5rem',
+    cursor: 'pointer',
+    boxShadow: '0 10px 30px rgba(102, 126, 234, 0.4)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: 'bold',
+    transition: 'all 0.3s'
+  }}
+  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget as HTMLButtonElement;
+    button.style.transform = 'scale(1.1)';
+    button.style.boxShadow = '0 15px 40px rgba(102, 126, 234, 0.6)';
+  }}
+  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget as HTMLButtonElement;
+    button.style.transform = 'scale(1)';
+    button.style.boxShadow = '0 10px 30px rgba(102, 126, 234, 0.4)';
+  }}
+>
+  {count}
+</button>
       </div>
 
       {/* Add CSS animations */}

@@ -1,19 +1,24 @@
 function App() {
   return (
-    <div style={{
-      fontFamily: "'Segoe UI', 'Inter', -apple-system, sans-serif",
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      background: '#0f172a',
-      color: '#f8fafc',
-      padding: '2rem',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <div
+      style={{
+        fontFamily: "'Segoe UI', 'Inter', -apple-system, sans-serif",
+        width: '100vw',               // ensure full viewport width
+        height: '100vh',              // ensure full viewport height
+        margin: 0,                    // remove browser default margins
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        background: '#0f172a',
+        color: '#f8fafc',
+        position: 'relative',
+        overflow: 'hidden',
+        boxSizing: 'border-box'       // include padding inside width
+      }}
+    >
 
       {/* Subtle trading chart grid */}
       <div style={{
@@ -30,9 +35,18 @@ function App() {
         opacity: 0.3
       }}></div>
 
-      {/* Main content */}
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px' }}>
-        
+      {/* Main content: centered and responsive */}
+      <div
+        className="main-container"
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '900px',             // allow more room on large screens
+          width: 'min(92%, 900px)',      // responsive width with margin
+          margin: '0 auto',
+        }}
+      >
+
         {/* Trading indicator */}
         <div style={{
           display: 'inline-flex',
@@ -145,19 +159,36 @@ function App() {
       </div>
 
       <style>{`
+        /* Reset & ensure root fills viewport (important for some dev setups) */
+        html, body, #root {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+        }
+
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }
         }
-        
+
         @keyframes fade {
           0%, 100% { opacity: 0.3; }
           50% { opacity: 0.8; }
         }
-        
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 1024px) {
+          h1 { font-size: 3rem !important; }
+        }
         @media (max-width: 768px) {
-          h1 { font-size: 2.5rem; }
-          .main-container { padding: 1rem; }
+          .main-container { padding: 0 1rem; }
+          h1 { font-size: 2.5rem !important; }
+          p { font-size: 1rem !important; }
+        }
+        @media (max-width: 480px) {
+          .main-container { padding: 0 0.75rem; }
+          h1 { font-size: 2rem !important; }
+          p { font-size: 0.9rem !important; }
         }
       `}</style>
     </div>
